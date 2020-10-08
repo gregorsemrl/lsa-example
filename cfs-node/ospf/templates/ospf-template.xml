@@ -1,0 +1,23 @@
+<config-template xmlns="http://tail-f.com/ns/config/1.0" servicepoint="ospf">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>{/rfs-node}</name>
+      <config>
+        <ospf-rfs xmlns="http://com/example/ospf">
+          <name>{/name}_CFS</name>
+          <device>
+            <name>{/managed-device}</name>
+            <?foreach {ospfProcess}?>
+              <ospfProcess>
+                <id>{id}</id>
+                <ip-address>{ip-address}</ip-address>
+                <netmask>{netmask}</netmask>
+                <area>{area}</area>
+              </ospfProcess>
+            <?end?>
+          </device>
+        </ospf-rfs>
+      </config>
+    </device>
+  </devices>
+</config-template>

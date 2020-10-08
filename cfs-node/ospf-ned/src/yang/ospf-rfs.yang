@@ -1,0 +1,57 @@
+module ospf-rfs {
+  namespace "http://com/example/ospf-rfs";
+  prefix ospf-rfs;
+
+  import ietf-inet-types { prefix inet; }
+  import tailf-ncs { prefix ncs; }
+  import tailf-common { prefix tailf; }
+
+  list ospf-rfs {
+    tailf:info "Services for OSPF configuration (NSO300 LSA training)";
+    key name;
+
+    uses ncs:service-data;
+    ncs:servicepoint "ospf-rfs";
+
+    leaf name {
+      type string;
+    }
+
+    list device {
+        tailf:info "List of devices where OSPF is configured";
+        key name;
+        
+        leaf name {
+          tailf:info "Device name";
+          type string;
+        }
+
+        list ospfProcess {
+          tailf:info "OSPF Configuration list";
+          key "id";
+
+          leaf id {
+            tailf:info "OSPF Process ID";
+            type uint32;
+          }
+
+          leaf ip-address {
+                      tailf:info "OSPF IP address";
+                      type inet:ipv4-address;
+          }
+
+          leaf netmask {
+                      tailf:info "OSPF Netmask";
+                      type inet:ipv4-address;
+          }
+
+          leaf area {
+            tailf:info "OSPF Area ID";
+            type uint32;
+          }
+        }
+      }
+
+   
+  }
+}

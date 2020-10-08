@@ -1,0 +1,91 @@
+devices device CE11
+ config
+  no ios:service pad
+  ios:hostname CE11_Changed3
+  no ios:ip domain-lookup
+  no ios:ip http secure-server
+  ios:ip source-route
+  ios:vlan 200-201
+  !
+  ios:interface FastEthernet0/0
+  exit
+  ios:interface GigabitEthernet0/1
+  exit
+  ios:interface GigabitEthernet0/10
+  exit
+  ios:interface GigabitEthernet0/11
+  exit
+  ios:interface GigabitEthernet0/12
+   switchport access vlan 20
+  exit
+  ios:interface GigabitEthernet0/13
+  exit
+  ios:interface GigabitEthernet0/14
+  exit
+  ios:interface GigabitEthernet0/15
+  exit
+  ios:interface GigabitEthernet0/16
+  exit
+  ios:interface GigabitEthernet0/17
+  exit
+  ios:interface GigabitEthernet0/18
+  exit
+  ios:interface GigabitEthernet0/19
+  exit
+  ios:interface GigabitEthernet0/2
+  exit
+  ios:interface GigabitEthernet0/20
+  exit
+  ios:interface GigabitEthernet0/21
+  exit
+  ios:interface GigabitEthernet0/22
+  exit
+  ios:interface GigabitEthernet0/23
+  exit
+  ios:interface GigabitEthernet0/24
+  exit
+  ios:interface GigabitEthernet0/3
+  exit
+  ios:interface GigabitEthernet0/4
+  exit
+  ios:interface GigabitEthernet0/5
+  exit
+  ios:interface GigabitEthernet0/6
+  exit
+  ios:interface GigabitEthernet0/7
+  exit
+  ios:interface GigabitEthernet0/8
+  exit
+  ios:interface GigabitEthernet0/9
+  exit
+  ios:interface Loopback0
+   ip address 10.1.1.5 255.255.255.255
+   ip nat inside
+  exit
+  ios:interface Loopback1101
+   description This is a description for 1101
+   ip address 10.100.11.1 255.255.255.255
+  exit
+  ios:interface Loopback1134
+   description This is a description for 1134
+   ip address 10.100.32.45 255.255.255.255
+  exit
+  ios:interface Loopback1144
+   description This is a description for 1144
+   ip address 10.100.11.44 255.255.255.255
+  exit
+  ios:interface Loopback1177
+   description This is a description for 1177
+   ip address 10.100.21.21 255.255.255.255
+  exit
+  ios:interface Vlan20
+   ip address 172.16.20.22 255.255.255.0
+  exit
+  ios:router ospf 1
+   network 0.0.0.0 255.255.255.255 area 1
+  !
+  ios:router ospf 2
+   network 10.0.0.0 255.255.255.255 area 2
+  !
+ !
+!

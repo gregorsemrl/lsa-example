@@ -1,0 +1,32 @@
+module lsa-dispatch-map {
+  namespace "http://com/example/lsadispatchmap";
+  prefix lsa-dispatch-map;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  list lsa-dispatch-map {
+    key rfs-node;
+
+    uses ncs:service-data;
+    ncs:servicepoint "lsa-dispatch-map";
+
+    leaf rfs-node {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+
+    list managed-device {
+      key name;
+      
+      leaf name {
+        type string;
+      }
+    }
+  }
+}
